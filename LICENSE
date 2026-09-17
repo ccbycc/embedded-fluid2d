@@ -1,7 +1,7 @@
 License
 
-Firmware: MIT License (see firmware/LICENSE)
-Hardware: CC BY-NC 3.0 (see hardware/LICENSE)
+Firmware: MIT License (see examples/esp32/LICENSE)
+Hardware: CC BY-NC 3.0 (see examples/hardware/LICENSE)
 Docs: CC BY-NC 3.0 (see docs/LICENSE)
 
 Note: Third-party libraries/components remain under their respective licenses.

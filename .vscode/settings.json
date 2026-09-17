@@ -1,4 +1,4 @@
 {
-    "cmake.sourceDirectory": "F:/ESP32/esp32-led-matrix/firmware",
+    "cmake.sourceDirectory": "${workspaceFolder}/examples/esp32",
     "idf.currentSetup": "D:/Espressif/frameworks/esp-idf-v5.5.2/"
 }

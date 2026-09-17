@@ -1,11 +1,12 @@
-# ESP32 LED Matrix（16×16 WS2812）
+# Portable 2D FLIP/PIC
 
-这是一个以 **算法** 为核心的 LED 矩阵效果项目：使用 ESP32 驱动 16×16 WS2812 灯板，提供一套可扩展的实时效果框架。  
-当前示例包含“流体/水波”类效果（参考 Flip 思路实现）和DOOM风格fire效果，后续会持续加入更多不同风格的效果与玩法。
+本项目正在从 ESP32 水流灯原型演进为面向资源受限平台的可移植 C++11 2D FLIP/PIC 流体模拟核心。
+
+ESP32-S3、16×16 WS2812 和 MPU6050 是当前参考应用，不是算法核心的运行前提。现有 ESP32 工程暂时保持原行为，后续将逐步改为调用平台无关核心。
 
 - 演示视频：【用esp32和flip把灯板变成会流动的水】 https://www.bilibili.com/video/BV1BoFoz6EGF/?share_source=copy_web&vd_source=7e1d93ad9ac103c6c0653b43edfdaebd
 - 演示视频2：【用doom算法实现跳动火花】 https://www.bilibili.com/video/BV124ZBBhEyS/?share_source=copy_web&vd_source=7e1d93ad9ac103c6c0653b43edfdaebd
-- 代码仓库：<https://github.com/cccAboy/esp32-led-matrix>
+- 代码仓库：<https://github.com/ccbycc/embedded-fluid2d>
 - 嘉立创链接：https://oshwhub.com/ccbaw123/deng-ban-flip
 
 ---
@@ -31,15 +32,15 @@
 
 	如果在网购平台购买成品灯板，下面2，3步可以跳过。
 
-2. 在嘉立创打板（每月能免费打板两次），打板文件在嘉立创链接里直接打即可，或者在Hardware文件夹里下载
+2. 在嘉立创打板（每月能免费打板两次），打板文件可从嘉立创链接或 `examples/hardware/` 获取
 
 3. 焊接（器件较小，需要加热台和焊接烙铁）并将MPU6050黏贴在灯板背后
 
-4. 软件烧录：将Firmwarel文件夹里的代码拉取下来，编译烧录
+4. 软件烧录：进入 `examples/esp32/`，编译并烧录 ESP-IDF 工程
 
   （如不知道如何操作，推荐参考正点原子ESP32快速入门（IDF版），从0操作，到第9讲即可使用）
 
-5. 按照Hardware项目文档里面的接线图将硬件连接起来
+5. 按照 `examples/hardware/README.md` 中的接线图连接硬件
 
 6. 上电，恭喜你已经完成项目
 
@@ -59,7 +60,7 @@
 
 v1.2.0
 
-使用doom_fire算法实现火苗模拟，详见firmware/README.md
+使用doom_fire算法实现火苗模拟，详见 `examples/esp32/README.md`
 
 将灯板固定参数如宽高蛇形走位映射，整合入panel_config.h
 
@@ -92,15 +93,18 @@ v1.0.2
 
 ## 仓库结构
 
-- `firmware/`：ESP32 固件与算法
-- `hardware/`：硬件
-- `docs/`：文档资源
+- `fluid2d/`：平台无关 C++11 FLIP/PIC 流体核心目标位置
+- `doom_fire/`：独立的 DOOM Fire 算法目标位置
+- `examples/esp32/`：当前可编译的 ESP-IDF 参考应用和原始算法实现
+- `examples/hardware/`：当前 ESP32 灯板参考硬件
+- `prebuilt/esp32/`：面向复刻用户的 ESP32 预编译简易固件
+- `docs/`：架构方案、购置清单和图片资源
 
 ---
 ## License
 
-- Firmware/Code: MIT License (see `firmware/LICENSE`)
-- Hardware: CC BY-NC 3.0 (see `hardware/LICENSE`)
+- Firmware/Code: MIT License (see `examples/esp32/LICENSE`)
+- Hardware: CC BY-NC 3.0 (see `examples/hardware/LICENSE`)
 - Docs: CC BY-NC 3.0 (see `docs/LICENSE`)
 
 Note: Third-party libraries/components remain under their respective licenses.
@@ -113,11 +117,8 @@ Portions of the firmware are adapted/ported from work by **Matthias Müller (Ten
 licensed under the MIT License.
 
 - Original source: https://github.com/matthias-research/pages
-- See `firmware/LICENSE` for the full license text.
+- See `examples/esp32/LICENSE` for the full license text.
 
 ## 致谢
 
 https://www.youtube.com/watch?v=XmzBREkK8kY
-
-
-
