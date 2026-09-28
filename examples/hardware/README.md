@@ -2,7 +2,7 @@
 
 本项目是一块 16×16 高密度 WS2812 灯板，使用 WS2812B（3332封装） 灯珠组成 256 像素矩阵。灯板本身为纯硬件模块，通过外接 ESP32 等主控从 DIN 输入数据即可驱动显示。演示视频中的“流体水”效果由 Flip 算法在主控端实现，后续将在主控端持续增加更多玩法与功能。
 
-<img src="../../docs/assets/展示图.jpg" alt="展示图.jpg" style="zoom:33%;" />
+<img src="assets/展示图.jpg" alt="展示图.jpg" style="zoom:33%;" />
 
 
 
@@ -12,7 +12,7 @@
 
 - 16×16 密集矩阵显示，支持像素级颜色与亮度控制
 
-<img src="../../docs/assets/灯板正面-焊接.jpg" style="zoom:33%;" />
+<img src="assets/灯板正面-焊接.jpg" style="zoom:33%;" />
 
 - 单线级联数据输入（DIN），适配 ESP32/Arduino/ESP-IDF 等驱动方案
 
@@ -22,7 +22,7 @@
 
 - LED：WS2812B（3332封装）
 
-<img src="../../docs/assets/WS2812.jpg" style="zoom:33%;" />
+<img src="assets/WS2812.jpg" style="zoom:33%;" />
 
 - 排布：16×16 矩阵，共 256 颗
 
@@ -32,7 +32,7 @@
 
 - 灯板采用**行优先蛇形走位**：第 0 行从左到右，第 1 行从右到左，依次交替；index=0 为 DIN 输入的第一颗灯。
 
-<img src="../../docs/assets/蛇形示意图.jpg" alt="蛇形示意图.jpg" style="zoom:33%;" />
+<img src="assets/蛇形示意图.jpg" alt="蛇形示意图.jpg" style="zoom:33%;" />
 
 > 供电建议：WS2812 全白满亮电流较大，建议限亮/限流，并为电源预留充足余量。
 
@@ -55,7 +55,7 @@
 
 ## 软件代码
 
-演示效果（Flip 流体/水波）在主控端实现，代码后续放在 GitHub：
+演示效果（FLIP 流体/水波）在主控端运行，核心算法和 ESP32 固件均可在本仓库获取：
 
 - [GitHub](https://github.com/ccbycc/embedded-fluid2d)：`https://github.com/ccbycc/embedded-fluid2d`
 
@@ -72,7 +72,7 @@
 
 ### 2) MPU6050 模块  用胶水固定在灯板背面
 
-<img src="../../docs/assets/灯板背面-焊接.jpg" style="zoom:33%;" />
+<img src="assets/灯板背面-焊接.jpg" style="zoom:33%;" />
 
 
 ### 接线表（便于复制）
@@ -91,7 +91,7 @@
 
 
 
-![接线图.jpg](../../docs/assets/接线图.jpg)
+![接线图.jpg](assets/接线图.jpg)
 
 ## 注意事项
 
@@ -135,13 +135,13 @@
 
 图1：灯板正面（16×16）
 
-<img src="../../docs/assets/灯板正面-未焊接.jpg" style="zoom: 33%;" />
+<img src="assets/灯板正面-未焊接.jpg" style="zoom: 33%;" />
 图2：灯板背面/接口位置（5V/GND/DIN）
 
-<img src="../../docs/assets/灯板背面-未焊接.jpg" style="zoom:33%;" />
+<img src="assets/灯板背面-未焊接.jpg" style="zoom:33%;" />
 图3：点亮效果（流体水） 
 
-<img src="../../docs/assets/水流效果.png" alt="image-20260213232637071" style="zoom: 50%;" />
+<img src="assets/水流效果.png" alt="image-20260213232637071" style="zoom: 50%;" />
 
 
 
